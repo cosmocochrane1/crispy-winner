@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "776867856396",
+    "project_id": "mike-sounds",
+    "storage_bucket": "mike-sounds.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:776867856396:android:2b34cd0c8e285b06e96e29",
+        "android_client_info": {
+          "package_name": "com.example.mikesounds"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "776867856396-h225bdpqqhei97988rahjn1ksfdj3j13.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYD7E5AclJe3LJ66DDSXjikyzZkpGRdy8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "776867856396-h225bdpqqhei97988rahjn1ksfdj3j13.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">776867856396-h225bdpqqhei97988rahjn1ksfdj3j13.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">776867856396</string>
+    <string name="google_api_key" translatable="false">AIzaSyDYD7E5AclJe3LJ66DDSXjikyzZkpGRdy8</string>
+    <string name="google_app_id" translatable="false">1:776867856396:android:2b34cd0c8e285b06e96e29</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDYD7E5AclJe3LJ66DDSXjikyzZkpGRdy8</string>
+    <string name="google_storage_bucket" translatable="false">mike-sounds.appspot.com</string>
+    <string name="project_id" translatable="false">mike-sounds</string>
+</resources>
