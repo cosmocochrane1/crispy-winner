@@ -37,7 +37,9 @@ class Categories with ChangeNotifier {
     /// Get single document by ID
 
     try {
-      return getCatgories();
+      var shit = await getCatgories();
+      print(_items);
+      print('THESE SHOULD BE THE ITEMS!!');
     } catch (e) {
       throw e;
     }

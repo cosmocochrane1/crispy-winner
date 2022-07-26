@@ -45,23 +45,11 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final cart = Provider.of<Cart>(context);
 
     return Scaffold(
         drawer: AppDrawer(),
         appBar: AppBar(
           title: Text('MyShop'),
-          actions: <Widget>[
-            Badge(
-              color: Colors.black,
-              child: IconButton(
-                  icon: Icon(Icons.shopping_cart),
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(CartScreen.routeName);
-                  }),
-              value: cart.itemCount.toString(),
-            )
-          ],
         ),
         body: _isLoading
             ? Center(
