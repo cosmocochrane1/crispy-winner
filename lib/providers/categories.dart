@@ -15,33 +15,31 @@ class Categories with ChangeNotifier {
   }
 
   Future getCatgories() async {
-    var shit = await FirebaseFirestore.instance
+    _items = [];
+    var firebaseReturn = await FirebaseFirestore.instance
         .collection('categories')
         .get();
 
-    var poop = shit.docs;
+    var categories = firebaseReturn.docs;
     
-    poop.forEach((DOC) {
+    categories.forEach((DOC) {
       var item = DOC.data();
-      dev.debugger();
       _items.add(
         Category.fromJson(item)
       );
 
       DOC.data();
     });
-    print(poop);
+    
+    return _items;
   }
 
   Future fetchAndSetCategories() async {
     /// Get single document by ID
-
     try {
-      var shit = await getCatgories();
-      print(_items);
-      print('THESE SHOULD BE THE ITEMS!!');
-    } catch (e) {
-      throw e;
+      await getCatgories();
+    } catch(error){
+      print(error);
     }
   }
 }

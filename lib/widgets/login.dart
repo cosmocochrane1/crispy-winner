@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import '../providers/auth.dart';
 import '../screens/forgot_password_screen.dart';
 
-
 class LoginWidget extends StatefulWidget {
   final VoidCallback onClickedSignUp;
 
@@ -38,69 +37,75 @@ class _LoginWidgetState extends State<LoginWidget> {
             SizedBox(height: 60),
             FlutterLogo(size: 120),
             SizedBox(height: 20),
-            Text(
-              'Hey There,\n Welcome Back',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-            ),
             SizedBox(height: 40),
             TextField(
               controller: emailController,
-              cursorColor: Colors.white,
               textInputAction: TextInputAction.next,
-              decoration: InputDecoration(labelText: 'Email'),
+              decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 0,
+                        style: BorderStyle.none,
+                      ),
+                      borderRadius: BorderRadius.circular(10.0)),
+                  hintText: 'Email Address'),
             ),
-            SizedBox(height: 4),
+            SizedBox(height: 20),
             TextField(
               controller: passwordController,
               textInputAction: TextInputAction.done,
-              decoration: InputDecoration(labelText: 'Password'),
+              decoration: InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 0,
+                        style: BorderStyle.none,
+                      ),
+                      borderRadius: BorderRadius.circular(10.0)),
+                  hintText: 'Password'),
               obscureText: true,
             ),
             SizedBox(height: 20),
-            ElevatedButton.icon(
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size.fromHeight(50),
-              ),
-              icon: Icon(Icons.lock_open, size: 32),
-              label: Text(
-                'Sign In',
-                style: TextStyle(fontSize: 24),
-              ),
-              onPressed: (){
-                Provider.of<Auth>(context, listen: false).login(
-          emailController.text,
-          passwordController.text,
-          context,
-        );
-              },
-            ),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    primary: Color.fromRGBO(142,151,253,1),
+                    minimumSize: const Size.fromHeight(50),
+                    shape: StadiumBorder()),
+                onPressed: () {
+                  Provider.of<Auth>(context, listen: false).login(
+                    emailController.text,
+                    passwordController.text,
+                    context,
+                  );
+                },
+                child: Text('Sign In', style: TextStyle(fontSize: 18),)),
             SizedBox(height: 24),
             GestureDetector(
               child: Text(
                 'Forgot Password?',
                 style: TextStyle(
-                  decoration: TextDecoration.underline,
-                  color: Theme.of(context).colorScheme.secondary,
-                  fontSize: 20,
+                  color: Color.fromRGBO(142,151,253,1),
+                  fontSize: 14,
                 ),
               ),
-              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => ForgotPasswordPage())),
-              
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => ForgotPasswordPage())),
             ),
             SizedBox(height: 16),
             RichText(
               text: TextSpan(
-                style: TextStyle(color: Colors.white, fontSize: 20),
-                text: 'No account?  ',
+                style: TextStyle(color: Color.fromRGBO(161,164,178, 1), fontSize: 14),
+                text: 'Dont have an account yet? ',
                 children: [
                   TextSpan(
                     recognizer: TapGestureRecognizer()
                       ..onTap = widget.onClickedSignUp,
                     text: 'Sign Up',
                     style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      color: Theme.of(context).colorScheme.secondary,
+                      color: Color.fromRGBO(142,151,253,1),
                     ),
                   ),
                 ],

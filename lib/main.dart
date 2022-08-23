@@ -7,13 +7,14 @@ import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import './screens/product_overview_screen.dart';
+import './screens/category_overview_screen.dart';
 import './screens/product_detail_screen.dart';
 import './screens/cart_screen.dart';
 import './screens/orders_screen.dart';
 import './screens/user_products_screen.dart';
 import './screens/auth_screen.dart';
 import './screens/forgot_password_screen.dart';
+import './screens/profile_screen.dart';
 
 import './providers/products.dart';
 import './providers/product.dart';
@@ -59,9 +60,10 @@ class MyApp extends StatelessWidget {
             title: 'MyShop',
             scaffoldMessengerKey: Utils.messengerKey,
             navigatorKey: navigatorKey,
-            theme: ThemeData.light().copyWith(
-              colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.teal)
-                  .copyWith(secondary: Colors.tealAccent),
+            theme: ThemeData(
+              fontFamily: 'Raleway',
+              brightness: Brightness.light,
+              primaryColor: Colors.lightBlue[800],
             ),
             home: StreamBuilder<User?>(
                 stream: FirebaseAuth.instance.authStateChanges(),
@@ -71,7 +73,7 @@ class MyApp extends StatelessWidget {
                   } else if (snapshot.hasError) {
                     return Center(child: Text('Something went wrong!'));
                   } else if (snapshot.hasData) {
-                    return ProductOverviewScreen();
+                    return CategoryOverviewScreen();
                   } else {
                     return AuthPage();
                   }
@@ -83,6 +85,9 @@ class MyApp extends StatelessWidget {
               OrdersScreen.routeName: (context) => OrdersScreen(),
               UserProductsScreen.routeName: (context) => UserProductsScreen(),
               ForgotPasswordPage.routeName: (context) => ForgotPasswordPage(),
+              ProfileScreen.routeName: (context) => ProfileScreen(),
+              CategoryOverviewScreen.routeName: (context) =>
+                  CategoryOverviewScreen()
             });
       }),
     );

@@ -14,16 +14,22 @@ class _AuthPageState extends State<AuthPage> {
 
   void toggle() => setState(() => isLogin = !isLogin);
 
-
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          title: Text('Reset Password'),
-        ),
-        body: isLogin
-      ? LoginWidget(onClickedSignUp: toggle)
-      : SignUpWidget(onClickedSignIn: toggle));
+      body: Center(
+          child: Container(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color.fromRGBO(37, 30, 59, 1),
+                  Color.fromRGBO(56, 60, 161, 1),
+                ],
 
+              )),
+              child: Center(
+                  child: isLogin
+                      ? LoginWidget(onClickedSignUp: toggle)
+                      : SignUpWidget(onClickedSignIn: toggle)))));
 }

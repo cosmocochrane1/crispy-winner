@@ -5,6 +5,7 @@ class Category with ChangeNotifier {
   final String title;
   final String description;
   final String backgroundImage;
+  final List<Song> songs;
 
 
   Category({
@@ -12,23 +13,26 @@ class Category with ChangeNotifier {
     required this.title,
     required this.description,
     required this.backgroundImage,
-
+    required this.songs
   });
 
   static Category fromJson(Map<String, dynamic> json){
-    print("*************************************************");
     print(json);
+    List<Song> songList = json['songs'].map<Song>((singleSong){
+          return Song(id: singleSong['title'], title: singleSong['title'], mp3: singleSong['mp3'], artist: singleSong['artist']);
+        }).toList();
+
+    print(songList);
     return Category(
         id: json['title'],
         title: json['title'],
         description: json['description'],
         backgroundImage: json['backgroundImage'],
-        // songs: json['songs'].forEach((singleSong) => {
-        //   Song(id: singleSong['title'], title: singleSong['title'], mp3: singleSong['mp3'], artist: singleSong['artist'])
-        // })
+        songs: songList
       );
   }
 }
+
 
 class Song with ChangeNotifier {
   final String id;
@@ -42,4 +46,7 @@ class Song with ChangeNotifier {
     required this.title,
     required this.artist,
   });
+
+
+
 }

@@ -61,7 +61,7 @@ class Auth with ChangeNotifier {
       );
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email!.trim());
 
-      Utils.showSnackBar('Password Reset Email Sent');
+      Utils.showSnackBar('Password Reset Email Sent', backgroundColor: Colors.blue);
       Navigator.of(context).popUntil((route) => route.isFirst);
     } on FirebaseAuthException catch (e) {
       print(e);
