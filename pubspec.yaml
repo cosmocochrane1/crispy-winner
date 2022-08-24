@@ -35,6 +35,8 @@ dependencies:
   firebase_auth: ^3.5.0
   email_validator: ^2.0.1
   audioplayers: ^1.0.1
+  # pick audio file
+  file_picker: ^4.5.1
 
 dev_dependencies:
   flutter_test:

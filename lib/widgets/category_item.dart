@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../screens/product_detail_screen.dart';
+import '../screens/category_detail_screen.dart';
 import '../providers/category.dart';
+import '../providers/categories.dart';
 
 class CategoryItem extends StatelessWidget {
-  // final String id;
-  final String title;
-  // final String imageUrl;
-
-  CategoryItem({this.title: ''});
-
   @override
   Widget build(BuildContext context) {
     final category = Provider.of<Category>(context, listen: false);
+    final categoriesProvider = Provider.of<Categories>(context);
+
     return Container(
       alignment: Alignment.center,
       decoration: BoxDecoration(
@@ -22,7 +19,8 @@ class CategoryItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         child: GestureDetector(
           onTap: () {
-            Navigator.of(context).pushNamed(ProductDetailScreen.routeName,
+            categoriesProvider.setActiveCategory(category.id);
+            Navigator.of(context).pushNamed(CategoryDetailScreen.routeName,
                 arguments: category.id);
           },
           child: Text(

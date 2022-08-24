@@ -2,16 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'dart:developer' as dev;
 
-import '../screens/cart_screen.dart';
-
 import '../widgets/category_grid.dart';
-import '../widgets/badge.dart';
 import '../widgets/category_item.dart';
-import '../widgets/app_drawer.dart';
 import '../widgets/featured_category.dart';
 
 import '../providers/categories.dart';
-import '../providers/cart.dart';
 
 enum FilterOptions {
   Favorites,
@@ -58,7 +53,6 @@ class _CategoryOverviewScreenState extends State<CategoryOverviewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: AppDrawer(),
         body: Container(
             decoration: BoxDecoration(
                 gradient: LinearGradient(

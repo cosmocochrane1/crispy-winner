@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/providers/auth.dart';
 import 'package:flutter_complete_guide/screens/cart_screen.dart';
 import 'package:flutter_complete_guide/screens/forgot_password_screen.dart';
-import 'package:flutter_complete_guide/widgets/user_product_item.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import './screens/category_overview_screen.dart';
-import './screens/product_detail_screen.dart';
+import './screens/category_detail_screen.dart';
 import './screens/cart_screen.dart';
 import './screens/orders_screen.dart';
 import './screens/user_products_screen.dart';
@@ -17,7 +16,6 @@ import './screens/forgot_password_screen.dart';
 import './screens/profile_screen.dart';
 
 import './providers/products.dart';
-import './providers/product.dart';
 import './providers/cart.dart';
 import './providers/orders.dart';
 import './providers/auth.dart';
@@ -80,7 +78,8 @@ class MyApp extends StatelessWidget {
                 }),
             routes: {
               AuthPage.routeName: (context) => AuthPage(),
-              ProductDetailScreen.routeName: (context) => ProductDetailScreen(),
+              CategoryDetailScreen.routeName: (context) =>
+                  CategoryDetailScreen(),
               CartScreen.routeName: (context) => CartScreen(),
               OrdersScreen.routeName: (context) => OrdersScreen(),
               UserProductsScreen.routeName: (context) => UserProductsScreen(),

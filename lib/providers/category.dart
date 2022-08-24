@@ -17,12 +17,10 @@ class Category with ChangeNotifier {
   });
 
   static Category fromJson(Map<String, dynamic> json){
-    print(json);
     List<Song> songList = json['songs'].map<Song>((singleSong){
           return Song(id: singleSong['title'], title: singleSong['title'], mp3: singleSong['mp3'], artist: singleSong['artist']);
         }).toList();
 
-    print(songList);
     return Category(
         id: json['title'],
         title: json['title'],

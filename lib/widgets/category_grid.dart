@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import './category_item.dart';
-
 import '../providers/categories.dart';
 
 class CategoryGrid extends StatelessWidget {
@@ -23,4 +21,3 @@ class CategoryGrid extends StatelessWidget {
             ));
   }
 }
-
